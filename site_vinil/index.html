@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Vinil Misterioso</title>
+    <style>
+        body {
+            background: #fff;
+            text-align: center;
+            padding-top: 50px;
+            font-family: monospace;
+        }
+        .botao {
+            margin-top: 30px;
+            padding: 12px 28px;
+            font-size: 1.3em;
+            background: #eee;
+            border: 2px solid #000;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .botao:hover {
+            background: #ccc;
+        }
+        img {
+            max-width: 400px;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    <img src="vinil_Web.gif" alt="Vinil Girando" loop autoplay>
+    <audio id="vinil-audio" src="vinil.mp3" autoplay loop></audio>
+    <br>
+    <button class="botao" onclick="window.location.href='misterio.html'">Entrar?</button>
+    <script>
+        // Para garantir que o áudio toque mesmo se o navegador bloquear o autoplay
+        window.onload = function() {
+            var audio = document.getElementById('vinil-audio');
+            audio.volume = 0.6;
+            document.body.addEventListener('click', function() {
+                if (audio.paused) audio.play();
+            });
+        }
+    </script>
+</body>
+</html>
